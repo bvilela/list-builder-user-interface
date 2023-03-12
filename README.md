@@ -1,2 +1,2 @@
-# list-builder-user-interface
-Electron Application for List Builder User Interface
+# List Builder User- Interface
+Electron User Interface Application for the [List Builder](https://github.com/bvilela/list-builder) project
