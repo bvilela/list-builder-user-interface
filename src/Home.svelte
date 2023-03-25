@@ -1,11 +1,6 @@
 <script>
     import Grid from "svelte-grid-responsive";
-    import Card, {
-        Content,
-        PrimaryAction,
-        Media,
-        MediaContent,
-    } from "@smui/card";
+    import ListCard from "./shared/ListCard.svelte";
 </script>
 
 <main>
@@ -14,28 +9,13 @@
             <h3>Escolha a lista desejada:</h3>
         </Grid>
         <Grid md={4}>
-            <div class="card-display">
-                <div class="card-container">
-                    <Card>
-                        <Media class="card-media-16x9" aspectRatio="16x9">
-                            <MediaContent>
-                                <h2 class="mdc-typography--headline6 title-center">
-                                    Assistência
-                                </h2>
-                            </MediaContent>
-                        </Media>
-                        <!-- <Content style="color: #888;"
-                            >Here's some gray text down here.</Content
-                        > -->
-                    </Card>
-                </div>
-            </div></Grid
-        >
-        <Grid md={4}>
-            <div>Designações</div>
+            <ListCard link="assistencia" title="Assistência"/>
         </Grid>
         <Grid md={4}>
-            <div>Limpeza</div>
+            <ListCard link="designacao" title="Designações"/>
+        </Grid>
+        <Grid md={4}>
+            <ListCard link="limpeza" title="Limpeza"/>
         </Grid>
         <Grid md={4}>
             <div>Nossa Vida e Ministério</div>
@@ -47,13 +27,4 @@
 </main>
 
 <style>
-    .title-center {
-        color: #000;
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
 </style>

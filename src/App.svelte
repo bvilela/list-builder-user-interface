@@ -1,13 +1,20 @@
 <script>
-    // import Config from "./Config.svelte";
+    import Router from 'svelte-spa-router'
+    import Home from './Home.svelte';
+    import Assistencia from './list-type/Assistencia.svelte';
+    import Designacoes from './list-type/Designacoes.svelte';
+    import Limpeza from './list-type/Limpeza.svelte';
 
-    import Home from "./Home.svelte";
-
+    const routes = {
+        "/": Home,
+        "/assistencia": Assistencia,
+        "/designacao": Designacoes,
+        "/limpeza": Limpeza
+    };
 </script>
 
 <main>
-	<!-- <Config title="List Builder Configurações"/> -->
-    <Home/>
+    <Router {routes}/>
 </main>
 
 <style>
