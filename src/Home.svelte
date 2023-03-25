@@ -5,23 +5,23 @@
 
 <main>
     <Grid container gutter={12}>
-        <Grid md={12}>
+        <Grid md=12>
             <h3>Escolha a lista desejada:</h3>
         </Grid>
-        <Grid md={4}>
+        <Grid lg=2.4 md=4>
             <ListCard link="assistencia" title="Assistência"/>
         </Grid>
-        <Grid md={4}>
+        <Grid lg=2.4 md=4>
             <ListCard link="designacao" title="Designações"/>
         </Grid>
-        <Grid md={4}>
+        <Grid lg=2.4 md=4>
             <ListCard link="limpeza" title="Limpeza"/>
         </Grid>
-        <Grid md={4}>
-            <div>Nossa Vida e Ministério</div>
+        <Grid lg=2.4 md=4>
+            <ListCard link="vida-crista" title="Nossa Vida e Ministério"/>
         </Grid>
-        <Grid md={4}>
-            <div>Oradores</div>
+        <Grid lg=2.4 md=4>
+            <ListCard link="oradores" title="Oradores"/>
         </Grid>
     </Grid>
 </main>
