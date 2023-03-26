@@ -1,8 +1,9 @@
 const { contextBridge, ipcRenderer } = require("electron");
 contextBridge.exposeInMainWorld(
-    "api", { // "api" --> rename it to anything you want
-         titlebar: action => {
-             ipcRenderer.send("titlebar", action);
-         }
+    "electron", 
+    {
+        closeApp: () => ipcRenderer.send("closeApp"),
+        makeListAssistencia: () => ipcRenderer.send("makeListAssistencia"),
+        makeListLimpeza: () => ipcRenderer.send("makeListLimpeza"),
     }
 );

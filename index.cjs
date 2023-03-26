@@ -17,20 +17,23 @@ app.on("ready", () => {
   mainWindow.maximize();
   // mainWindow.setMenu(null);
 
-  ipcMain.on("titlebar", (event, arg) => {
-    if (arg === "destroy") {
-      mainWindow.destroy();
-    } else if (arg === "kill") {
-      var exec = require('child_process').exec, child;
-      child = exec('java -jar jar/list-builder.jar',
-        function (error, stdout, stderr) {
-          console.log('stdout: ' + stdout);
-          console.log('stderr: ' + stderr);
-          if (error !== null) {
-            console.log('exec error: ' + error);
-          }
-        });
-    }
-  })
-});
+  ipcMain.on("closeApp", () => mainWindow.destroy());
+  ipcMain.on("makeListAssistencia", () => invokeJar("ASSISTENCIA"));
+  ipcMain.on("makeListLimpeza", () => invokeJar("LIMPEZA"));
 
+  function invokeJar(listType) {
+    var args = "--spring.profiles.active=PRD --tipo.lista=" + listType;
+    var commandExecute = path.join('java -jar ' + __dirname, 'jar/list-builder.jar ' + args);
+    console.log("Command to Execute: " + commandExecute);
+
+    var exec = require('child_process').exec, child;
+    child = exec(commandExecute,
+      function (error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+          console.log('exec error: ' + error);
+        }
+      });
+  }
+});

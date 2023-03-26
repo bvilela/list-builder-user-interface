@@ -6,8 +6,8 @@
     <p>This is Assistência page.</p>
     <a href="#/">home</a>
     <br />
-    <Button on:click={() => window.api.titlebar("destroy")}>Primary button</Button>
-    <Button kind="danger" on:click={() => window.api.titlebar("kill")}>Call Jar File</Button>
+    <Button on:click={() => window.electron.closeApp()}>Primary button</Button>
+    <Button kind="danger" on:click={() => window.electron.makeListAssistencia()}>Call Jar File</Button>
 </main>
 
 <style>
